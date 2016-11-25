@@ -1,0 +1,131 @@
+[
+	{
+		"b_key": "111111",
+		"bid": "1",
+		"blue": {
+			"pid": 0,
+			"pname": "资源部"
+		},
+		"bname": "08:7C:BE:59:4B:7",
+		"did": 1,
+		"macadree": "08:7C:BE:59:4B:7",
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"remark": "三大",
+		"rid": 1
+	}, {
+		"b_key": "123232",
+		"bid": "6",
+		"blue": {
+			"pid": 0,
+			"pname": "资源部"
+		},
+		"bname": "08:7C:BE:59:4B:7",
+		"did": 1,
+		"macadree": "08:7C:BE:59:4B:7",
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"remark": "是的撒",
+		"rid": 1
+	}, {
+		"b_key": "222232",
+		"bid": "7",
+		"blue": {
+			"pid": 0,
+			"pname": "市场部"
+		},
+		"bname": "08:7C:BE:59:4B:7",
+		"did": 2,
+		"macadree": "08:7C:BE:59:4B:7",
+		"region": {
+			"rid": 0,
+			"rname": "西区"
+		},
+		"remark": "的观点",
+		"rid": 2
+	}, {
+		"b_key": "111134",
+		"bid": "8",
+		"blue": {
+			"pid": 0,
+			"pname": "资源部"
+		},
+		"bname": "08:7C:BE:59:4B:7",
+		"did": 1,
+		"macadree": "08:7C:BE:59:4B:7",
+		"region": {
+			"rid": 0,
+			"rname": "西区"
+		},
+		"remark": "豆腐干",
+		"rid": 2
+	}, {
+		"b_key": "232132",
+		"bid": "9",
+		"blue": {
+			"pid": 0,
+			"pname": "人事部"
+		},
+		"bname": "阿达",
+		"did": 3,
+		"macadree": "22221313",
+		"region": {
+			"rid": 0,
+			"rname": "中区"
+		},
+		"remark": "3333",
+		"rid": 3
+	}, {
+		"b_key": "322123",
+		"bid": "10",
+		"blue": {
+			"pid": 0,
+			"pname": "研发部"
+		},
+		"bname": "2312312",
+		"did": 4,
+		"macadree": "232132312",
+		"region": {
+			"rid": 0,
+			"rname": "西区"
+		},
+		"remark": "SDFS",
+		"rid": 2
+	}, {
+		"b_key": "454545",
+		"bid": "11",
+		"blue": {
+			"pid": 0,
+			"pname": "研发部"
+		},
+		"bname": "SADSA",
+		"did": 4,
+		"macadree": "123214",
+		"region": {
+			"rid": 0,
+			"rname": "西区"
+		},
+		"remark": "2321",
+		"rid": 2
+	}, {
+		"b_key": "44432",
+		"bid": "12",
+		"blue": {
+			"pid": 0,
+			"pname": "研发部"
+		},
+		"bname": "23123213",
+		"did": 4,
+		"macadree": "213123",
+		"region": {
+			"rid": 0,
+			"rname": "中区"
+		},
+		"remark": "232",
+		"rid": 3
+	}
+]

@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* CSS Document */
+/*公用的*/
+*{margin:0;padding: 0;}
+article,aside,dialog,footer,header,section,nav,figure,menu,content{display:block}
+body {position:relative;font-family:"Microsoft YaHei", "微软雅黑", "SimHei", "MSYH", "黑体", Helvetica;-webkit-text-size-adjust:none;font-size:100%;color:#464646; background:#fff;}
+body, div, p, input, h1, h2, h3, h4, ol, ul, li, dl, dt, dd, form, fieldset, input, textarea, blockquote,span{margin:0;padding:0;list-style:none;vertical-align:middle;font-family:"Microsoft YaHei", "微软雅黑", "SimHei", "MSYH", "黑体", Helvetica;}
+button,select{	font-family:"Microsoft YaHei", "微软雅黑", "SimHei", "MSYH", "黑体", Helvetica;}
+img {vertical-align:top;border:0;}
+a,a:hover,a:focus {text-decoration: none; color:#666;outline: none;}
+section:after, .clear:after {display:block;overflow:hidden;clear:both;height:0;visibility:hidden;content:".";}
+.linkA {color:#f30;}
+i, cite, em {font-style:normal;}
+.fl{float:left}
+.fr{float:right}
+.red{color:red;}
+
+input:focus{outline:none;}
+input:focus{outline:1px solid #fe4300;}
+.rose{color:#D84C1F;}
+h1,h2,h3,h4,h5,h6{ font-weight:normal; margin:0;}
+input:focus,select:focus,textarea:focus,button:focus{outline:none;}
+input[type='radio']{ width:20px; height:20px; margin-right:5px; margin-top:-3px; display:inline-block; border:none;}
+.layer,.content{ width:1200px; margin:0 auto; position:relative;}
+
+/*头部*/
+.header{ width:100%; height:75px; border-bottom:5px solid #0D9EDD;} 
+.header .logo { float:left;padding-top: 15px}
+.header .login{ float:right; height:43px; margin-top:16px; line-height:43px;}
+.header .login .personal{ float:left; margin-right:10px;}
+.header .login .personal img{ margin-right:10px;width: 40px;height: 40px; border-radius: 50%;}
+.header .login .personal a{ font-size:14px; color:#222;}
+.header .login .exit{ float:left; height:21px; margin-top:11px; border-left:1px solid #DCE0E2; line-height:21px; padding-left:10px;}
+.header .login .exit a{font-size:14px; color:#999;margin-right: 10px}
+.header .login .exit a:hover{color: #0D9EDD}
+/*主体部分*/
+.main{ width:100%; background:#F4F5F9; overflow:hidden;height: 100%;}
+.content{ border:1px solid #E4E4E4; background:#fff; margin:25px auto; overflow:hidden;min-height:700px;}
+.menu{ width:18%; float:left; background:#fff url(../images/line_icon.png) repeat-y right;}
+.menu li{ width:100%; border-bottom:1px solid #E4E4E4; line-height:50px; text-align:center; position:relative;}
+.menu li a{ display:block; font-size:16px; color:#666;cursor: pointer;}
+.menu li>a.active{ color:#0D9EDD;}
+.menu li>a:hover{color:#0D9EDD;}
+.menu .active+dl,.menu .show { display:block;}
+.menu li dl{ border-top:1px solid #E4E4E4; text-align:center;display: none;}
+.menu li dl dd a{ font-size:14px; color:#999999;line-height: 50px;}
+.menu .active+dl dd.currs{ background:#EBEBEB; border-right:3px solid #0D9EDD;}
+.menu .active+dl dd:hover{background:#EBEBEB; border-right:3px solid #0D9EDD;}
+.menu .active+dl dd.currs a{ color:#0D9EDD}
+/*底部*/
+.footer{ width:100%; height:40px; background:#5B6E84; text-align:center; line-height:40px; color:#fff; font-size:14px;margin-top: 0}

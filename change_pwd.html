@@ -1,0 +1,38 @@
+<section class="main_right" ng-controller="updateCtrl">
+	<h2><p>修改密码</p></h2>
+	<form role="form" class="form-horizontal" name="registerForm" ng-submit="submitPwd()">
+		<div class="changePwd col-md-12 col-md-offset-1 mt30">
+			<div class="form-group col-md-11">
+				<label class="col-md-2 control-label">原始密码</label>
+				<div class="col-md-5" ng-class="{ 'has-error' : registerForm.oldpassword.$invalid && !userForm.oldpassword.$dirty,'has-success' : registerForm.oldpassword.$valid && !userForm.oldpassword.$dirty }">
+					<input type="password" class="form-control" placeholder="请输入原密码" ng-model="pwddata.oldpassword" name="oldpassword" required>
+				</div>
+				<div class="col-md-4 prompt" ng-show="registerForm.oldpassword.$dirty && registerForm.oldpassword.$error.required">
+					*原密码不正确
+				</div>
+			</div>
+			<div class="form-group col-md-11">
+				<label class="col-md-2 control-label">新密码</label>
+				<div class="col-md-5" ng-class="{ 'has-error' : registerForm.password.$invalid && !userForm.password.$dirty,'has-success' : registerForm.password.$valid && !userForm.password.$dirty }">
+					<input type="password" class="form-control" placeholder="请输入新密码" ng-model="pwddata.password" name="password" ng-minlength="6" ng-maxlength="16" required>
+				</div>
+				<div class="col-md-4 prompt" ng-show="registerForm.password.$dirty && (registerForm.password.$error.minlength || registerForm.password.$error.maxlength)">
+					*密码长度应在6-16位之间
+				</div>
+			</div>
+			<div class="form-group col-md-11">
+				<label class="col-md-2 control-label">确认密码</label>
+				<div class="col-md-5" ng-class="{ 'has-error' : registerForm.passwordagain.$invalid && !userForm.password.$dirty,'has-success' : registerForm.passwordagain.$valid&& !userForm.password.$dirty }">
+					<input type="password" class="form-control" placeholder="请确认密码" ng-model="pwddata.passwordagain" repeat="password" name="passwordagain" required >
+				</div>
+				<div class="col-md-4 prompt" ng-show="registerForm.passwordagain.$dirty && registerForm.passwordagain.$error.repeat">
+					*两次密码输入不一致
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12 col-md-offset-4 mt30">
+			<button class="btn btn-success" ng-disabled="registerForm.$invalid">确认修改</button>
+			<button class="btn btn-default" type="reset">取消</button>
+		</div>
+	</form>
+</section>

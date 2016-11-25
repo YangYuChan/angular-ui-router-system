@@ -1,0 +1,24 @@
+
+<div class="login-main"  ng-controller="loginCtrl">
+	<div class="login_back">
+	    	<div class="login_lo">
+	        	<h2><img src="images/logo.png"></h2>
+	            <form id="myLogin">
+	            <ul>
+	            	<li>
+	                	<span class="span1"></span>
+	                    <input type="text" name="username" placeholder="用户名" ng-model="username"/>
+	                </li>
+	                <li>
+	                	<span class="span2"></span>
+	                    <input type="password" name="password" placeholder="密  码" ng-model="password"/>
+	                </li>
+	            </ul>
+				<p class="error">{{message}}</p>
+	            <button class="btn btn-success imme" ng-click="submit()">立即登录</button>
+	            </form>
+	        </div>
+	</div>
+</div>
+
+

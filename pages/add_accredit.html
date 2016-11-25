@@ -1,0 +1,110 @@
+<section class="main_right" ng-controller="accreditCtrl">
+	<h2><p>添加授权信息 </p></h2>
+	<div class="add_channel clearfix">
+		<h3>添加授权信息</h3>
+		<form method="post" name="addAccredit" ng-controller="accFormController" ng-submit="addAccForm()">
+			<table class="add_table" class="col-md-12">
+				<tr>
+					<td class="col-md-2">所属单位或部门</td>
+					<td class="col-md-10">
+						<select class="form-control form-select" 
+							ng-model="formData.department.pname" 
+							ng-options="department.did as department.pname for department in departments" 
+							ng-change="changeDepar()" 
+							required
+							name="pname">
+							<option value="">请选择单位或部门</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="col-md-2">员工姓名</td>
+					<td class="col-md-10">
+						<select class="form-control form-select" 
+							ng-model="formData.staff.ename" 
+							ng-options="staff.eid as staff.ename for staff in staffs  | filter:{did:formData.department.pname}" 
+							required
+							name="ename">
+							<option value="">请选择员工</option>
+						</select>
+
+					</td>
+				</tr>
+				<tr>
+					<td class="col-md-2">蓝牙锁名称</td>
+					<td class="col-md-10">
+						<select class="form-control form-select" 
+							ng-model="formData.bt.bname" 
+							ng-options="bt.bid as bt.bname for bt in bluetooth  | filter:{did:formData.department.pname}" 
+							required
+							name="bname">
+							<option value="">请选择蓝牙锁</option>
+						</select>
+
+					</td>
+				</tr>
+				<tr>
+					<td class="col-md-2">授权状态</td>
+					<td class="col-md-10">
+						<select class="form-control form-select" name="state" ng-model="formData.state" required="">
+							<option value="">请选择授权状态</option>
+							<option>已授权</option>
+							<option>未授权</option>
+							<option>待授权</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="col-md-2">授权开始时间</td>
+					<td class="col-md-10">
+						<div class="accredit-time">
+							<input class="flatpickr flatpickr-input active form_datetime form-control form-text" 
+								data-enable-time="true" 
+								data-enable-seconds="true" 
+								placeholder="请选择授权时间" 
+								id="startTime" 
+								ng-model="formData.startTime"
+								name="startTime">
+							<i class="icon icon-calendar"></i>
+						</div>
+
+					</td>
+				</tr>
+				<tr>
+					<td class="col-md-2">授权截至日期</td>
+					<td class="col-md-10">
+						<div class="accredit-time">
+						<input class="flatpickr flatpickr-input active form_datetime form-control form-text" 
+							data-enable-time="true" 
+							data-enable-seconds="true" 
+							placeholder="请选择授权截至日期" 
+							id="endTime" 
+							ng-model="formData.endTime"
+							name="endTime">
+						<i class="icon icon-calendar"></i>
+						</div>
+
+					</td>
+				</tr>
+
+			</table>
+			<div class="col-md-12 col-md-offset-3">
+				<button class="btn btn-success" ng-disabled="addAccredit.$invalid">添加</button>
+				<button class="btn btn-default" type="reset">清空</button>
+			</div>
+	</div>
+	</form>
+</section>
+<script type="text/javascript">
+	
+	 var check_in = document.getElementById("startTime").flatpickr({
+		minDate: new Date()
+	});
+	var check_out = document.getElementById("endTime").flatpickr({
+		minDate: new Date()
+	});
+	check_in.config.onChange = dateObj => check_out.set("minDate", dateObj.fp_incr(1));
+	check_out.config.onChange = dateObj => check_in.set("maxDate", dateObj.fp_incr(-1));	
+
+	
+</script>

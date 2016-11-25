@@ -1,0 +1,12 @@
+<menu ng-controller="menuController"  class="menu">
+    <ul>
+        <li ng-repeat="section in sections">
+            <a ng-click="setMaster(section)" ng-class="{active : isSelected(section)}">{{section.name}}</a>
+            <dl ng-class="{show : isSelected(section)}">
+            	<dd ng-repeat="child in section.children" ng-click="setBg(child)" ng-class="{currs: isBg(child)}" >
+            		<a ui-sref="{{child.location}}">{{child.name}}</a>
+            	</dd>
+            </dl>
+        </li>
+    </ul>
+</menu>	

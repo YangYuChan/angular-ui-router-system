@@ -1,0 +1,457 @@
+[
+	{
+		"b_key": "111111",
+		"dept": {
+			"pid": 0,
+			"pname": "资源部"
+		},
+		"did": 1,
+		"eid": 1,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "张三",
+			"rid": 0
+		},
+		"jid": 1,
+		"jstatic": "已授权",
+		"jstop": 1479954395000,
+		"jtime": 1479879847000,
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}, {
+		"b_key": "222222",
+		"dept": {
+			"pid": 0,
+			"pname": "资源部"
+		},
+		"did": 1,
+		"eid": 1,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "张三",
+			"rid": 0
+		},
+		"jid": 2,
+		"jstatic": "未授权",
+		"jstop": 1479286474000,
+		"jtime": 1479879854000,
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}, {
+		"b_key": "111111",
+		"dept": {
+			"pid": 0,
+			"pname": "市场部"
+		},
+		"did": 2,
+		"eid": 2,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "李四",
+			"rid": 0
+		},
+		"jid": 3,
+		"jstatic": "待授权",
+		"jstop": 1479286510000,
+		"jtime": 1479879890000,
+		"region": {
+			"rid": 0,
+			"rname": "西区"
+		},
+		"rid": 2,
+		"uname": "admin"
+	}, {
+		"b_key": "123232",
+		"dept": {
+			"pid": 0,
+			"pname": "资源部"
+		},
+		"did": 1,
+		"eid": 1,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "张三",
+			"rid": 0
+		},
+		"jid": 4,
+		"jstatic": "未授权",
+		"jstop": 1480478400000,
+		"jtime": 1480392000000,
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}, {
+		"b_key": "222232",
+		"dept": {
+			"pid": 0,
+			"pname": "市场部"
+		},
+		"did": 2,
+		"eid": 1,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "张三",
+			"rid": 0
+		},
+		"jid": 5,
+		"jstatic": "未授权",
+		"jstop": 1480478400000,
+		"jtime": 1480392000000,
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}, {
+		"b_key": "111111",
+		"dept": {
+			"pid": 0,
+			"pname": "资源部"
+		},
+		"did": 1,
+		"eid": 1,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "张三",
+			"rid": 0
+		},
+		"jid": 6,
+		"jstatic": "待授权",
+		"jstop": 1480392000000,
+		"jtime": 1479960000000,
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}, {
+		"b_key": "222232",
+		"dept": {
+			"pid": 0,
+			"pname": "市场部"
+		},
+		"did": 2,
+		"eid": 1,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "张三",
+			"rid": 0
+		},
+		"jid": 7,
+		"jstatic": "已授权",
+		"jstop": 1480478400000,
+		"jtime": 1480392000000,
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}, {
+		"b_key": "222232",
+		"dept": {
+			"pid": 0,
+			"pname": "市场部"
+		},
+		"did": 2,
+		"eid": 1,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "张三",
+			"rid": 0
+		},
+		"jid": 8,
+		"jstatic": "未授权",
+		"jstop": 1480392000000,
+		"jtime": 1479960000000,
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}, {
+		"b_key": "111111",
+		"dept": {
+			"pid": 0,
+			"pname": "资源部"
+		},
+		"did": 1,
+		"eid": 1,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "张三",
+			"rid": 0
+		},
+		"jid": 9,
+		"jstatic": "未授权",
+		"jstop": 1480478400000,
+		"jtime": 1480392000000,
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}, {
+		"b_key": "111111",
+		"dept": {
+			"pid": 0,
+			"pname": "资源部"
+		},
+		"did": 1,
+		"eid": 1,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "张三",
+			"rid": 0
+		},
+		"jid": 10,
+		"jstatic": "未授权",
+		"jstop": 1480478400000,
+		"jtime": 1480392000000,
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}, {
+		"b_key": "111111",
+		"dept": {
+			"pid": 0,
+			"pname": "资源部"
+		},
+		"did": 1,
+		"eid": 1,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "张三",
+			"rid": 0
+		},
+		"jid": 11,
+		"jstatic": "未授权",
+		"jstop": 1480392000000,
+		"jtime": 1479960000000,
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}, {
+		"b_key": "222232",
+		"dept": {
+			"pid": 0,
+			"pname": "市场部"
+		},
+		"did": 2,
+		"eid": 4,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "销五",
+			"rid": 0
+		},
+		"jid": 12,
+		"jstatic": "已授权",
+		"jstop": 1480392000000,
+		"jtime": 1480219200000,
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}, {
+		"b_key": "123232",
+		"dept": {
+			"pid": 0,
+			"pname": "资源部"
+		},
+		"did": 1,
+		"eid": 2,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "李四",
+			"rid": 0
+		},
+		"jid": 13,
+		"jstatic": "已授权",
+		"jstop": 1479960000000,
+		"jtime": 1480046400000,
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}, {
+		"b_key": "111111",
+		"dept": {
+			"pid": 0,
+			"pname": "资源部"
+		},
+		"did": 1,
+		"eid": 2,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "李四",
+			"rid": 0
+		},
+		"jid": 14,
+		"jstatic": "已授权",
+		"jstop": 1480046400000,
+		"jtime": 1480305600000,
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}, {
+		"b_key": "232132",
+		"dept": {
+			"pid": 0,
+			"pname": "人事部"
+		},
+		"did": 3,
+		"eid": 5,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "地六",
+			"rid": 0
+		},
+		"jid": 15,
+		"jstatic": "未授权",
+		"jstop": 1479975859000,
+		"jtime": 1479975859000,
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}, {
+		"b_key": "222232",
+		"dept": {
+			"pid": 0,
+			"pname": "市场部"
+		},
+		"did": 2,
+		"eid": 4,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "销五",
+			"rid": 0
+		},
+		"jid": 16,
+		"jstatic": "未授权",
+		"jstop": 1479976131000,
+		"jtime": 1479976131000,
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}, {
+		"b_key": "111111",
+		"dept": {
+			"pid": 0,
+			"pname": "资源部"
+		},
+		"did": 1,
+		"eid": 3,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "王五",
+			"rid": 0
+		},
+		"jid": 17,
+		"jstatic": "未授权",
+		"jstop": 1479977635000,
+		"jtime": 1479977635000,
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}, {
+		"b_key": "123232",
+		"dept": {
+			"pid": 0,
+			"pname": "资源部"
+		},
+		"did": 1,
+		"eid": 2,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "李四",
+			"rid": 0
+		},
+		"jid": 18,
+		"jstatic": "未授权",
+		"jstop": 1479977800000,
+		"jtime": 1479977800000,
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}, {
+		"b_key": "222232",
+		"dept": {
+			"pid": 0,
+			"pname": "市场部"
+		},
+		"did": 2,
+		"eid": 4,
+		"emp": {
+			"did": 0,
+			"eid": 0,
+			"ename": "销五",
+			"rid": 0
+		},
+		"jid": 19,
+		"jstatic": "未授权",
+		"region": {
+			"rid": 0,
+			"rname": "东区"
+		},
+		"rid": 1,
+		"uname": "admin"
+	}
+]

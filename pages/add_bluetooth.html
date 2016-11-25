@@ -1,0 +1,64 @@
+
+         <section class="main_right">
+                <h2><p>添加蓝牙锁 </p></h2>
+                <div class="add_channel clearfix">
+                    <h3>添加蓝牙锁</h3>
+                    <form method="post" ng-controller="btFormController" ng-submit="addBtForm()" name="addBluetooth">
+                    <table class="add_table">
+                   
+                        <tr>
+                            <td class="col-md-2">蓝牙锁ID</td>
+                            <td class="col-md-10">
+                            <input type="text" class="form-control form-text" placeholder="输入蓝牙锁ID" ng-model="btFormData.bid" required>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td class="col-md-2">蓝牙锁名称</td>
+                            <td class="col-md-10">
+                                <input type="text" class="form-control form-text" placeholder="输入蓝牙锁名称" ng-model="btFormData.bname" required>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td class="col-md-2">蓝牙锁所在区域</td>
+                            <td class="col-md-10">
+                                <select class="form-control form-select" ng-model="btFormData.rid">
+									<option ng-repeat="bt in bluetooth" value="{{bt.region.rid}}">{{bt.region.rname}}</option>
+								</select>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td class="col-md-2">所属单位或部门</td>
+                            <td class="col-md-10">
+                                <select class="form-control form-select" 
+                                	name="pname"  
+                                	ng-model="btFormData.department.pname" 
+                                	ng-options="department.did as department.pname for department in departments"
+                                	required>
+									<option value="">请选择单位或部门</option>
+								</select>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td class="col-md-2">备注</td>
+                            <td class="col-md-10">
+                            <input type="text" class="form-control form-text" placeholder="备注" ng-model="btFormData.remark"></td>
+                        </tr>
+                         <tr>
+                            <td class="col-md-2">mac 地址</td>
+                            <td class="col-md-10">
+                            <input type="text" class="form-control form-text" placeholder="mac 地址" ng-model="btFormData.macadree"></td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-2">设备ID</td>
+                            <td class="col-md-10">
+                            <input type="text" class="form-control form-text" placeholder="设备ID" ng-model="btFormData.equid"></td>
+                        </tr>
+                    </table>
+                 <div class="col-md-12 col-md-offset-3">
+                        <button class="btn btn-success" type="submit" ng-disabled="addBluetooth.$invalid">添加</button>
+                        <button class="btn btn-default" type="reset">清空</button>
+                </div>
+                </div>
+                </form>
+            </section>
+          
