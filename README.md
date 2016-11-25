@@ -8,3 +8,5 @@ Later on the basis of constantly improve is required
 Also hope that they can more expert guidance
 
 demo: https://yangyuchan.github.io/angular-ui-router-system
+username:admin   
+password:123456
