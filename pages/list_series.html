@@ -1,0 +1,72 @@
+ <div ng-controller="updataBtCtrl4">
+	<section class="main_right">
+		<h2><p>查看父分类信息 </p></h2>
+		  <div ng-controller="Series" class="my-controller">
+		   <input type="number" min="1" max="100" class="form-control" ng-model="pageSize" style="display: none;">
+		<table cellpadding="0" cellspacing="0" class="list-table mt30">
+			<thead>
+				<tr>
+					<th>父分类ID</th>
+					<th>父分类标题</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+		<tr dir-paginate="bt in region | itemsPerPage: pageSize" current-page="currentPage">
+				
+					<td>{{bt.sid}}</td>
+					<td>{{bt.series}}</td>
+					<td>
+						<a href="javascript:void(0)" ng-click="updatedfd($index,currentPage)">修改</a>
+						<!-- <a href="javascript:void(0)" ng-click="delBtInfo1($index,currentPage)">删除</a> -->
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	 <div ng-controller="OtherController" class="other-controller">
+				<div class="text-center">
+					<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="pages/pagination.html"></dir-pagination-controls>
+				</div>
+			</div>
+	</section>
+	<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal fade" id="myModal" style="display: none;">
+		<div class="modal-dialog update-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+					<h4 id="myModalLabel" class="modal-title">修改父分类信息</h4>
+				</div>
+				<div class="modal-body">
+
+					<form method="post" ng-submit="updatesubfa()" name="updateBluetooth">
+						<table cellpadding="0" cellspacing="0" class="update-table">
+							<thead>
+								<tr>
+									<td class="col-md-3">父分类ID</td>
+									<td class="col-md-7">
+										<input type="text" class="form-control form-text" ng-model="btlist.bid" required readonly value="{{btlist.bid}}">
+									</td>
+								</tr>
+								<tr>
+									<td class="col-md-3">父分类标题</td>
+									<td class="col-md-7">
+										<input type="text" class="form-control form-text" ng-model="btlist.bname" required value="{{btlist.bname}}">
+									</td>
+								</tr>
+								<tr>
+									<td class="col-md-10" colspan="2" style="text-align: center;">
+										<button class="btn btn-success" type="submit">修改</button>
+									</td>
+								</tr>	
+							</thead>
+						</table>
+
+				</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>
+</div> 

@@ -1,0 +1,63 @@
+
+<section class="main_right">
+<form method="post" id="df">
+<h5>新闻类别：<select name="ntype" id="t1">
+<option value="公司新闻">公司新闻</option>
+<option value="产业新闻">产业新闻</option>
+<option value="产品新闻">产品新闻</option>
+</select></h5>
+<h5>新闻标题：<input type="text" name="title" id="t3"/></h5>
+<h5>新闻来源：<input type="text" name="source" id="t4" /></h5>
+<h5>是否公开：<select name="statc" id="t2">
+<option value="1">公开</option>
+<option value="2">不公开</option>
+</select></h5>
+	<h5><div class="accredit-time">
+							<input class="flatpickr flatpickr-input active form_datetime form-control form-text" 
+								data-enable-time="true" 
+								data-enable-seconds="true" 
+								placeholder="请选择编辑时间"  
+								id="startTime" 
+								name="ntime1"
+								ng-model="formData.startTime"
+								style="width:320px;"/>
+</div></h5>		
+<textarea id="container" name="ntext"
+style="width: 800px; height:500px;">
+</textarea>
+<h5><input type="button" onclick="submit1()" value="添加"></h5>
+</form>
+</section>
+            <!-- 实例化编辑器 -->
+<script type="text/javascript">
+var ue = UE.getEditor("container");
+var check_in = document.getElementById("startTime").flatpickr({
+});
+var check_out = document.getElementById("endTime").flatpickr({
+});
+
+var submit = function(){
+	$.ajax({
+		url: "json/datails.json",
+		type: "GET",
+		dataType: 'json',
+		success: function(data) {
+			alert("修改成功");
+			location.href="../bg/index.html#/main/check_bluetooth"
+		}
+	})
+	
+	
+	}
+
+var name=window.localStorage.getItem('bgnid');
+var bgntext=window.localStorage.getItem('bgntext');
+document.getElementById("t3").value=name;
+
+document.getElementById("container").value=bgntext;
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+	
+	
+</script>
+          

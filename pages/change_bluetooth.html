@@ -1,0 +1,35 @@
+
+<section class="main_right">
+<form method="post" id="df">
+<h2><p>编辑新闻内容</p></h2>	
+<script  type="text/plain" id="container" name="ntext"
+style="width: 800px; height:500px;">
+</script>
+	<h5><input type="button" onclick="submit1()" value="保存"></h5>
+</form>
+</section>
+            <!-- 实例化编辑器 -->
+<script type="text/javascript">
+var bgntext=window.localStorage.getItem('bgntext');
+document.getElementById("container").value=bgntext;
+$(function(){
+	  UE.delEditor('container');
+	  var ue = UE.getEditor('container');
+})
+function submit1(){
+	var ntext=UE.getEditor('container').getContent();
+	var nid=window.localStorage.getItem('bgnid');
+	$.ajax({
+		url: "../news/update",
+		type:"post",
+		data:{ntext:ntext,nid:nid},
+		success: function(data) {
+			alert("修改成功");
+			location.href="../bg/index.html#/main/check_bluetooth"
+		}
+	})
+	
+}	
+	
+</script>
+          

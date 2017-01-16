@@ -7,7 +7,7 @@ body {position:relative;font-family:"Microsoft YaHei", "微软雅黑", "SimHei",
 body, div, p, input, h1, h2, h3, h4, ol, ul, li, dl, dt, dd, form, fieldset, input, textarea, blockquote,span{margin:0;padding:0;list-style:none;vertical-align:middle;font-family:"Microsoft YaHei", "微软雅黑", "SimHei", "MSYH", "黑体", Helvetica;}
 button,select{	font-family:"Microsoft YaHei", "微软雅黑", "SimHei", "MSYH", "黑体", Helvetica;}
 img {vertical-align:top;border:0;}
-a,a:hover,a:focus {text-decoration: none; color:#666;outline: none;}
+a,a:hover,a:focus {text-decoration: none; color:#666;}
 section:after, .clear:after {display:block;overflow:hidden;clear:both;height:0;visibility:hidden;content:".";}
 .linkA {color:#f30;}
 i, cite, em {font-style:normal;}

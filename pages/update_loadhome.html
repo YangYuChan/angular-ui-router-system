@@ -1,0 +1,82 @@
+
+
+<section class="main_right">
+	<h2>
+		<p>修改下载中心信息</p>
+	</h2>
+	<div class="add_channel clearfix">
+<form name="addAccredit" ng-controller="accFormController" id="form1" ng-submit="updateload()">
+				<table class="add_table">
+
+					<tr>
+						<td class="col-md-2">软件名称</td>
+						<td class="col-md-10"><input type="text"
+						class="form-control form-text" ng-model="btlist1.bid" value="{{btlist1.bid}}" placeholder="输入新闻标题"
+						ng-model="btFormData.title" required></td>
+					</tr>
+					<tr>
+						<td class="col-md-2">软件分类</td>
+						<td class="col-md-10"><input type="text"
+							class="form-control form-text" id="lo5" 
+							name="apptype"  ng-model="btlist1.pname"
+									value="{{btlist1.pname}}" placeholder="输入软件分类"></td>
+					</tr>
+					<tr>
+						<td class="col-md-2">软件大小</td>
+						<td class="col-md-10" ng-controller="MyCtrl"><input type="text" id="lo3" ng-model="btlist1.bname" value="{{btlist1.bname}}"
+							class="form-control form-text" 
+							name="appsize"  readonly="readonly"
+							required="required" style="float: left;"><a style="float: left; margin-left: 15px;"
+						href="javascript:;" name="file" class="btn btn-success upload-box">
+						<input type="file" class="upload-file"
+						ngf-select="uploadFiles($file, $invalidFiles)"> <span
+						ng-hide="f.progress >= 0"> 更改</span> <span
+						ng-show="f.progress >= 0"> 继续更改 </span>
+					</a></td>
+					</tr>
+					<tr>
+						<td class="col-md-2">下载链接</td>
+						<td class="col-md-10"><input type="text" id="appuri"  ng-model="btlist1.jie1" value="{{btlist1.jie1}}"
+							class="form-control form-text" placeholder="输入下载链接"
+							readonly="readonly"  name="appuri"
+							required="required" ></td>
+					</tr>
+					<tr>
+						<td class="col-md-2">图片链接</td>
+						<td class="col-md-10" ng-controller="MyCtrl"><input type="text" id="appimg" ng-model="btlist1.img" value="{{btlist1.img}}"
+							class="form-control form-text" placeholder="输入图片链接"
+							readonly="readonly" ng-model="btFormData.appimg" name="appimg"
+							required="required" style="float: left;"><a style="float: left; margin-left: 15px;"
+						href="javascript:;" name="file" class="btn btn-success upload-box">
+						<input type="file" class="upload-file"
+						ngf-select="uploadImg($file, $invalidFiles)"> <span
+						ng-hide="f1.progress >= 0"> 更改</span> <span
+						ng-show="f1.progress >= 0"> 继续更改 </span>
+					</a></td>
+					</tr>
+					<tr>
+						<td class="col-md-2">软件详情</td>
+							<td class="col-md-10"><textarea type="text/plain"
+							id="container2" name="appxplain">
+							</textarea>
+						</td>
+					</tr>  
+				</table>
+				<div class="col-md-12 col-md-offset-3">
+					<button class="btn btn-success" type="submit" >确认修改</button>
+				</div>
+		
+		</form>
+		</div>
+</section>
+
+<script type="text/javascript">
+ var bgntext=window.localStorage.getItem('bgntext');
+if(bgntext!="undefined"){
+document.getElementById("container2").value=bgntext;
+} 
+ $(function(){
+	  UE.delEditor('container2');
+	  var ue = UE.getEditor('container2');
+}) 
+</script>

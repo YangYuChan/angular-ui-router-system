@@ -1,49 +1,50 @@
 <div ng-controller="updataBtCtrl">
 	<section class="main_right">
-		<h2><p>查看蓝牙锁信息 </p></h2>
+		<h2><p>查看新闻信息 </p></h2>
+		  <div ng-controller="BtController" class="my-controller">
+		   <input type="number" min="1" max="100" class="form-control" ng-model="pageSize" style="display: none;">
 		<table cellpadding="0" cellspacing="0" class="list-table mt30">
 			<thead>
 				<tr>
-					<th>蓝牙锁ID</th>
-					<th>蓝牙锁名称</th>
-					<th>所在区域 </th>
-					<th>所属部门或单位</th>
-					<th>备注</th>
-					<th>操作</th>
+					<th style="width: 5%">新闻ID</th>
+					<th style="width: 35%">新闻标题</th>
+					<th style="width: 17%">所属类别</th>
+					<th style="width: 5%">是否公开</th>
+					<th style="width: 18%">来源</th>
+					<th style="width: 20%">操作</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="bt in bluetooth">
-					<td>{{bt.bid}}</td>
-					<td>{{bt.bname}}</td>
-					<td>{{bt.region.rname}}</td>
-					<td>{{bt.blue.pname}}</td>
-					<td>{{bt.remark}}</td>
+		<tr dir-paginate="bt in jc_news | itemsPerPage: pageSize" current-page="currentPage">
+				
+					<td>{{bt.nid}}</td>
+					<td>{{bt.title}}</td>
+					<td>{{bt.ntype}}</td>
+					<td ng-if="bt.statc ==1">	
+					是
+					</td>
+					<td ng-if="bt.statc ==2">
+					否
+					</td>
+					<td ng-if="false" >
+					
+					{{bt.ntext}}
+					
+					</td>
+					<td>{{bt.source}}</td>
 					<td>
-						<a href="javascript:void(0)" ng-click="updateBtInfo($index)">修改</a>
+						<a href="javascript:void(0)" ng-click="updateBtInfo($index,currentPage)">修改</a>
+						<a href="javascript:void(0)" ng-click="uptext($index,currentPage)">删除</a>
 					</td>
 				</tr>
 			</tbody>
 		</table>
-		<nav class="paging">
-			<ul class="pagination">
-				<li class="disabled">
-					<a>&laquo;</a>
-				</li>
-				<li class="active">
-					<a>1 <span class="sr-only">(current)</span></a>
-				</li>
-				<li>
-					<a>2</a>
-				</li>
-				<li>
-					<a>3</a>
-				</li>
-				<li>
-					<a>&raquo;</a>
-				</li>
-			</ul>
-		</nav>
+	</div>
+	 <div ng-controller="OtherController" class="other-controller">
+				<div class="text-center">
+					<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="pages/pagination.html"></dir-pagination-controls>
+				</div>
+			</div>
 	</section>
 	<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal fade" id="myModal" style="display: none;">
 		<div class="modal-dialog update-dialog">
@@ -54,51 +55,56 @@
 				</div>
 				<div class="modal-body">
 
-					<form method="post" ng-submit="updateBtForm()" name="updateBluetooth">
+					<form method="post" ng-submit="updateblue()" name="updateBluetooth">
 						<table cellpadding="0" cellspacing="0" class="update-table">
 							<thead>
 								<tr>
-									<td class="col-md-3">蓝牙锁ID</td>
+									<td class="col-md-3">新闻ID</td>
 									<td class="col-md-7">
 										<input type="text" class="form-control form-text" ng-model="btlist.bid" required readonly value="{{btlist.bid}}">
 									</td>
 								</tr>
 								<tr>
-									<td class="col-md-3">蓝牙锁名称</td>
+									<td class="col-md-3">新闻名称</td>
 									<td class="col-md-7">
 										<input type="text" class="form-control form-text" ng-model="btlist.bname" required value="{{btlist.bname}}">
 									</td>
 								</tr>
 								<tr>
-									<td class="col-md-3">蓝牙锁所在区域</td>
+									<td class="col-md-3">新闻类别</td>
 									<td class="col-md-7">
 										<select class="form-control form-select"  ng-model="btlist.rname">
-											<option ng-repeat="area in areas"  value="{{area.rname}}">{{area.rname}}</option>
+											<option   value="公司新闻">公司新闻</option>
+											<option   value="产品新闻">产品新闻</option>
+											<option   value="产业新闻">产业新闻</option>
 										</select>
 									</td>
 								</tr>
 								<tr>
-									<td class="col-md-3">所属单位或部门</td>
-									<td class="col-md-7">
-										<select class="form-control form-select" name="pname" ng-model="btlist.pname" required>
-											<option ng-repeat="department in departments" value="{{department.pname}}">{{department.pname}}</option>
+									<td class="col-md-3">是否公开</td>
+									<td class="col-md-7" ng-if="btlist.pname==1">
+										<select class="form-control form-select"  id="pname">
+											<option   value="1" selected="selected">公开</option>
+											<option  value="2">不公开</option>
+										</select>
+									</td>
+									<td class="col-md-7" ng-if="btlist.pname==2">	>
+										<select class="form-control form-select"  id="pname">
+											<option   value="1" >公开</option>
+											<option  value="2" selected="selected">不公开</option>
 										</select>
 									</td>
 								</tr>
 								<tr>
-									<td class="col-md-3">备注</td>
+									<td class="col-md-3">来源</td>
 									<td class="col-md-7">
 										<input type="text" class="form-control form-text" ng-model="btlist.remark" value="{{btlist.remark}}"></td>
 								</tr>
 								<tr>
-									<td class="col-md-3">mac 地址</td>
-									<td class="col-md-7">
-										<input type="text" class="form-control form-text" ng-model="btlist.macadree" value="{{btlist.macadree}}"></td>
-								</tr>
-								<tr>
-									<td class="col-md-3">设备ID</td>
-									<td class="col-md-7">
-										<input type="text" class="form-control form-text" ng-model="btlist.b_key" value="{{btlist.b_key}}"></td>
+
+									<td class="col-md-10" colspan="2" style="text-align: center;">
+<!-- 										<div ng-include="'pages/updateNew.html'"></div>
+ -->									</td>
 								</tr>
 								<tr>
 
@@ -106,6 +112,7 @@
 										<button class="btn btn-success" type="submit">修改</button>
 									</td>
 								</tr>
+								
 							</thead>
 						</table>
 

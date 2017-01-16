@@ -1,8 +1,25 @@
-app.controller('updateCtrl',function($scope,$location,$rootScope){
+app.controller('updateCtrl',function($scope,$location,$rootScope,$http){
 			$scope.pwddata = {};
 			$scope.submitPwd=function(){
-				$location.path('/main');
-				alert("修改密码成功");
+				var dpname = $scope.pwddata.oldpassword;
+				var pwd=window.localStorage.getItem("password");
+				var uid=window.localStorage.getItem("uid");
+	        	console.log(pwd+'<br/>'+uid+'<br/>');
+	        	var dpname1 = $scope.pwddata.passwordagain;
+				if(dpname==pwd){
+					$http({
+		                method  : 'POST',
+		                url     : 'user/update',
+		                params : {upwd:dpname1,uid:uid },  // pass in data as strings
+		                headers : { 'Content-Type': 'application/x-www-form-urlencoded' } 
+		            })
+		                .success(function(data) {
+		                	    $location.path('/login');
+		        				alert("修改密码成功");
+		                });
+				}else{
+					alert("原密码不正确");
+				}
 			}
 		})
  app.directive("repeat", [function () {

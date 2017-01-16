@@ -1,0 +1,65 @@
+<section class="main_right">
+	<h2><p>上传轮播图片 </p></h2>
+	<div class="Member_contact" ng-controller="MyCtrl">
+		<div class="add_channel clearfix">
+		<h3>轮播图片信息</h3>
+		<form name="addAccredit" ng-submit="addAccForm1()"
+			ng-controller="accFormController">
+			<table class="add_table">
+				
+				<tr>
+					<td class="col-md-2">图片路径</td>
+					<td class="col-md-10" ><input type="text"
+						class="form-control form-text" id="topimg" style="float: left"
+						ng-model="btFormData.problem" required readonly="readonly"><a href="javascript:;" style="float: left; margin-left: 10px;" name="file" class="btn btn-success upload-box">
+						<input type="file" class="upload-file" id="ads" ngf-select="uploadcsd($file, 10)" multiple>
+						 <span ng-hide="f7.progress >= 0">
+					          上传
+					      </span>
+						 <span ng-show="f7.progress >= 0">
+					          上传成功
+					      </span>
+					</a></td>
+				</tr>
+				<tr>
+					<td class="col-md-2">跳转路径</td>
+						<td class="col-md-7 updataImg clearfix"  ng-controller="MyCtrl">
+					<div class="img-area" ng-repeat="ad in deiles">
+						<div class="img-box"><img ng-src="{{ad.bigimg}}" alt="" width="100" height="100"/></div>
+						<div class="operate"><span class="btn delete" onclick="kjdddf()">删除</span></div>
+					</div>
+					<div class="file-area">
+						<div class="add">+</div>
+						<input type="file" class="upload-file" id="ads" ngf-select="uploadcsd($file, 4)" multiple>
+					</div>
+				</td>
+				</tr>
+			</table>
+			<input type="hidden" id="topimg">
+			<div class="col-md-12 col-md-offset-3">
+				<button class="btn btn-success" type="submit" onclick="tianjia1()">添加</button>
+			</div>
+	</div>
+	</form>
+</section>
+<script type="text/javascript">
+	function tianjia1(){
+		var patentimger=$("#topimg").val();
+		var imgurl=$("#imgurl").val();
+		if(patentimger==""){
+			alert("请添加轮换图片");
+		}else{
+		$.ajax({
+			url: "../topimg/add",
+			type:"post",
+			data:{imgsrc:patentimger,imgurl:imgurl},
+			success: function(data) {
+				alert("添加成功");
+				location.href="../bg/index.html#/main/check_topimg"
+			}
+		})
+		
+		}
+	}	
+</script>
+

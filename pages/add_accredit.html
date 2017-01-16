@@ -1,110 +1,138 @@
-<section class="main_right" ng-controller="accreditCtrl">
-	<h2><p>添加授权信息 </p></h2>
+<section class="main_right">
+	<h2>
+		<p>添加产品信息</p>
+	</h2>
 	<div class="add_channel clearfix">
-		<h3>添加授权信息</h3>
-		<form method="post" name="addAccredit" ng-controller="accFormController" ng-submit="addAccForm()">
-			<table class="add_table" class="col-md-12">
+		<form name="addAccredit" ng-submit="addAccForm()"
+			ng-controller="accFormController">
+			<table class="add_table">
 				<tr>
-					<td class="col-md-2">所属单位或部门</td>
+				<tr>
+					<td class="col-md-2">所属分类</td>
 					<td class="col-md-10">
-						<select class="form-control form-select" 
-							ng-model="formData.department.pname" 
-							ng-options="department.did as department.pname for department in departments" 
-							ng-change="changeDepar()" 
-							required
-							name="pname">
-							<option value="">请选择单位或部门</option>
-						</select>
+						<div ng-controller="TestCtrl">
+							<select class="form-control form-select"
+								ng-model="btFormData.pstatic" required="required"
+								ng-change="change(btFormData.pstatic)">
+								<option ng-repeat="bt in region" value="{{bt.sid}}">{{bt.series}}</option>
+							</select><span style="color:red" ng-if="error!=null">{{error}}</span>
 					</td>
+					</div>
 				</tr>
 				<tr>
-					<td class="col-md-2">员工姓名</td>
-					<td class="col-md-10">
-						<select class="form-control form-select" 
-							ng-model="formData.staff.ename" 
-							ng-options="staff.eid as staff.ename for staff in staffs  | filter:{did:formData.department.pname}" 
-							required
-							name="ename">
-							<option value="">请选择员工</option>
-						</select>
+					<td class="col-md-2">次级分类</td>
+					<td class="col-md-10"><select class="form-control form-select"
+						id="pmid">
+							<option ng-repeat="bt in sub" value="{{bt.subid}}">{{bt.subfamily}}</option>
+					</select></td>
+				</tr>
 
+				<tr>
+					<td class="col-md-2">电脑端图片路径</td>
+					<td class="col-md-7" ng-controller="MyCtrl"><input type="text"
+						class="form-control form-text" id="pcimg" readonly="readonly" style="float: left">
+						<a href="javascript:;" name="file"
+						class="btn btn-success upload-box"
+						style="float: left; margin-left: 10px;"> <input type="file"
+							class="upload-file" ngf-select="uploadpcimg($file,2)"> <span
+							ng-hide="pf1.progress >= 0"> 添加 </span> <span
+							ng-show="pf1.progress >= 0"> 更改添加 </span>
+					</a></td>
+				</tr>
+				<tr>
+				<tr>
+					<td class="col-md-3">手机端图片路径</td>
+					<td class="col-md-7" ng-controller="MyCtrl">
+							<input type="text" class="form-control form-text"
+								id="phimg"
+								readonly="readonly" style="float: left"> <a
+								href="javascript:;" name="file"
+								class="btn btn-success upload-box"
+								style="float: left; margin-left: 10px;"> <input type="file"
+								class="upload-file" ngf-select="uploadphimg($file,2)"> <span
+								ng-hide="pf2.progress >= 0"> 添加 </span> <span
+								ng-show="pf2.progress >= 0"> 更改成功 </span>
+							</a>
 					</td>
 				</tr>
 				<tr>
-					<td class="col-md-2">蓝牙锁名称</td>
-					<td class="col-md-10">
-						<select class="form-control form-select" 
-							ng-model="formData.bt.bname" 
-							ng-options="bt.bid as bt.bname for bt in bluetooth  | filter:{did:formData.department.pname}" 
-							required
-							name="bname">
-							<option value="">请选择蓝牙锁</option>
-						</select>
+					<td class="col-md-2">热点产品</td>
+					<td class="col-md-10"><select class="form-control form-select"
+						id="hots">
+							<option value="1" selected="selected">是</option>
+							<option value="2">否</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td class="col-md-2">产品名称</td>
+					<td class="col-md-10"><input type="text"
+						class="form-control form-text" placeholder="输入产品名称"
+						ng-model="btFormData.pname" required></td>
+				</tr>
+				<tr>
+					<td class="col-md-2">产品说明</td>
+					<td class="col-md-10"><textarea type="text"
+							class="form-control form-text" placeholder="产品说明"
+							ng-model="btFormData.shuoming" required style="width: 725px;" /></td>
+				</tr>
+				<tr>
+					<td class="col-md-2">产品参数</td>
+					<td class="col-md-10"> <textarea type="text/plain"  
+							id="container2" name="ntext">
+							</textarea></td>
+				</tr>
 
-					</td>
+				<tr>
+					<td class="col-md-2">产品规格</td>
+					<td class="col-md-10"> <textarea type="text/plain"  
+							id="container3" name="ntext">
+							</textarea></td>
 				</tr>
 				<tr>
-					<td class="col-md-2">授权状态</td>
-					<td class="col-md-10">
-						<select class="form-control form-select" name="state" ng-model="formData.state" required="">
-							<option value="">请选择授权状态</option>
-							<option>已授权</option>
-							<option>未授权</option>
-							<option>待授权</option>
-						</select>
-					</td>
+					<td class="col-md-2">产品用途</td>
+					<td class="col-md-10"><textarea type="text"
+							class="form-control form-text" placeholder="产品用途"
+							ng-model="btFormData.yongtu" required style="width: 725px;" /></td>
 				</tr>
+
 				<tr>
-					<td class="col-md-2">授权开始时间</td>
+					<td class="col-md-2">添加时间</td>
 					<td class="col-md-10">
 						<div class="accredit-time">
-							<input class="flatpickr flatpickr-input active form_datetime form-control form-text" 
-								data-enable-time="true" 
-								data-enable-seconds="true" 
-								placeholder="请选择授权时间" 
-								id="startTime" 
-								ng-model="formData.startTime"
-								name="startTime">
-							<i class="icon icon-calendar"></i>
+							<input
+								class="flatpickr flatpickr-input active form_datetime form-control form-text"
+								data-enable-time="true" data-enable-seconds="true"
+								placeholder="请选择添加时间" id="startTime1" name="ntime1"
+								ng-model="formData.startTime" style="width: 320px;" />
 						</div>
-
 					</td>
 				</tr>
 				<tr>
-					<td class="col-md-2">授权截至日期</td>
-					<td class="col-md-10">
-						<div class="accredit-time">
-						<input class="flatpickr flatpickr-input active form_datetime form-control form-text" 
-							data-enable-time="true" 
-							data-enable-seconds="true" 
-							placeholder="请选择授权截至日期" 
-							id="endTime" 
-							ng-model="formData.endTime"
-							name="endTime">
-						<i class="icon icon-calendar"></i>
-						</div>
-
-					</td>
+					<td class="col-md-2">产品详情</td>
+					<td class="col-md-10"><textarea type="text/plain"
+							id="container1" name="ntext">
+							</textarea></td>
 				</tr>
-
 			</table>
 			<div class="col-md-12 col-md-offset-3">
-				<button class="btn btn-success" ng-disabled="addAccredit.$invalid">添加</button>
-				<button class="btn btn-default" type="reset">清空</button>
+				<button class="btn btn-success" type="submit">添加</button>
+				<button class="btn btn-default">清空</button>
 			</div>
 	</div>
 	</form>
 </section>
 <script type="text/javascript">
-	
-	 var check_in = document.getElementById("startTime").flatpickr({
-		minDate: new Date()
-	});
-	var check_out = document.getElementById("endTime").flatpickr({
-		minDate: new Date()
-	});
-	check_in.config.onChange = dateObj => check_out.set("minDate", dateObj.fp_incr(1));
-	check_out.config.onChange = dateObj => check_in.set("maxDate", dateObj.fp_incr(-1));	
+$(function($rootScope){
+		$('#pmid').val("");
+	  UE.delEditor('container1');
+	  UE.delEditor('container2');
+	  UE.delEditor('container3');
+	   var ue3 = UE.getEditor('container3');
+	   var ue = UE.getEditor('container1');
+	   var ue2 = UE.getEditor('container2');
+})
+var check_in = document.getElementById("startTime1").flatpickr({
+});
 
 	
 </script>

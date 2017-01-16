@@ -1,0 +1,131 @@
+<div ng-controller="updataStaffCtrl">
+	<section class="main_right">
+		<h2><p>查看员工信息 </p></h2>
+		<div ng-controller="staffController" class="my-controller">
+			<div class="main_select clearfix">
+				<h3 style="display: none;">Meals Page: {{ currentPage }}</h3>
+				<div class="form-group col-md-6">
+					<label for="bluetoothID" class="col-md-3 control-label">员工姓名</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control" placeholder="员工姓名" ng-model="staffSearch.ename">
+					</div>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="staffID" class="col-md-3 control-label">所属区域</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control" placeholder="所属区域" ng-model="staffSearch.rid">
+					</div>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="staffDepartment" class="col-md-3 control-label">所属部门</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control" placeholder="所属部门" ng-model="staffSearch.did">
+					</div>
+				</div>
+				<input type="number" min="1" max="100" class="form-control" ng-model="pageSize" style="display: none;">
+				</div>
+		
+		<table cellpadding="0" cellspacing="0" class="list-table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>员工编号</th>
+					<th>员工姓名 </th>
+					<th>所在区域</th>
+					<th>所属部门</th>
+					<th>密码</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr dir-paginate="staff in staffs | filter:staffSearch | itemsPerPage: pageSize" current-page="currentPage">
+					<td>{{staff.eid}}</td>
+					<td>{{staff.emid}}</td>
+					<td>{{staff.ename}}</td>
+					<td>{{staff.rid}}</td>
+					<td>{{staff.did}}</td>
+					<td>{{staff.pwd}}</td>
+					<td>
+						<a href="javascript:void(0)" ng-click="updateStaffInfo($index,currentPage)">修改</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<div ng-controller="OtherController" class="other-controller">
+				<div class="text-center">
+					<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="pages/pagination.html"></dir-pagination-controls>
+				</div>
+			</div>
+	</section>
+	<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal fade" id="myModal" style="display: none;">
+		<div class="modal-dialog update-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+					<h4 id="myModalLabel" class="modal-title">修改员工信息</h4>
+				</div>
+				<div class="modal-body">
+
+					<form method="post" ng-submit="updateemp()" name="updateStaffForm">
+						<table cellpadding="0" cellspacing="0" class="update-table">
+							<thead>
+								<tr>
+									<td class="col-md-3">ID</td>
+									<td class="col-md-7">
+										<input type="text" class="form-control form-text" ng-model="slist.eid" required readonly value="{{slist.eid}}">
+									</td>
+								</tr>
+								<tr>
+									<td class="col-md-3">员工编号</td>
+									<td class="col-md-7">
+										<input type="text" class="form-control form-text" ng-model="slist.emid" required value="{{slist.emid}}">
+									</td>
+								</tr>
+								<tr>
+									<td class="col-md-3">员工姓名</td>
+									<td class="col-md-7">
+										<input type="text" class="form-control form-text" ng-model="slist.ename" required value="{{slist.ename}}">
+									</td>
+								</tr>
+								<tr>
+									<td class="col-md-3">所在区域</td>
+									<td class="col-md-7">
+										<select class="form-control form-select"  ng-model="slist.rid">
+											<option ng-repeat="area in areas"  value="{{area.rname}}">{{area.rname}}</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td class="col-md-3">所属部门</td>
+									<td class="col-md-7">
+										<select class="form-control form-select" name="pname" ng-model="slist.did" required>
+											<option ng-repeat="department in departments" value="{{department.pname}}">{{department.pname}}</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td class="col-md-3">密码</td>
+									<td class="col-md-7">
+										<input type="text" class="form-control form-text" ng-model="slist.pwd" value="{{slist.pwd}}"></td>
+								</tr>
+								
+								<tr>
+
+									<td class="col-md-10" colspan="2" style="text-align: center;">
+										<button class="btn btn-success" type="submit">修改</button>
+									</td>
+								</tr>
+							</thead>
+						</table>
+
+				</div>
+				</form>
+
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+</div>

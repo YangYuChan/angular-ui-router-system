@@ -1,9 +1,9 @@
-<header class="header" ng-controller="loginCtrl">
+<header class="header" ng-controller="successCtrl">
 	<div class="layer">
-    	<div class="logo"><a href='index.html'><img src="images/logo.png"></a></div>
+    	<div class="logo"><a href="index.html#/main"><span style="font-size: 25px;">中山巨创后台管理系统 </span></a></div>
         <div class="login">
-        	<div class="personal"><a href="javascript:;"><img src="images/hack_hortrait.png" alt="头像">{{username}}</a></div>
-            <div class="exit"><a ui-sref=".change_pwd">修改密码</a><a ui-sref="login">退出</a></div>
+        	<div class="personal"><a href="javascript:void(0);"><img src="images/hack_hortrait.png" alt="头像">{{username}}</a></div>
+            <div class="exit"><a ng-click="exit()" href="javascript:void(0);">退出</a></div>
         </div>
     </div>
 </header>

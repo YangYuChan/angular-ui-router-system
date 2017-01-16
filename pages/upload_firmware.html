@@ -1,25 +1,59 @@
 <section class="main_right">
-	<h2><p>上传固件 </p></h2>
-	<div class="Member_contact">
-	<form enctype= "multipart/form-data " name="form1" id="form1">
-		<div class="Member_Import1">
-			<p>选择一个固件上传: </p>
-			<p><input type="file" class="upload-file" name="file1" accept="application/vnd.ms-excel">
-				<button class="btn btn-success" type="submit">上传固件</button></p>
-		</div>
+		<div class="add_channel clearfix">
+		<h3>添加专利信息</h3>
+		<form name="addAccredit" ng-submit="addAccForm1()"
+			ng-controller="accFormController">
+			<table class="add_table">
+				<tr>
+					<td class="col-md-2">图片路径</td>
+					<td class="col-md-10" ng-controller="MyCtrl"><input type="text" id="patent"
+						class="form-control form-text" placeholder="上传专利图路径"
+						 required readonly="readonly"  style="float: left;">  <a href="javascript:;" name="file" style="float: left; margin-left: 10px;" class="btn btn-success upload-box">
+						<input type="file" class="upload-file"  ngf-select="uploadimg($file, $invalidFiles)">
+						 <span ng-hide="f6.progress >= 0">
+					          	上传
+					      </span>
+						 <span ng-show="f6.progress >= 0">
+					                   更改上传
+					      </span>
+					</a></td>
+				</tr>
+				<tr>
+					<td class="col-md-2">专利名</td>
+					<td class="col-md-10"><input type="text"
+						class="form-control form-text" id="pol" placeholder="输入专利名"
+						ng-model="btFormData.problem" required></td>
+				</tr>
+		
+			</table>
+			<input type="hidden" id="patent">
+			<div class="col-md-12 col-md-offset-3">
+				<button class="btn btn-success" type="submit" onclick="tianjia1()">添加</button>
+			</div>
+	</div>
 	</form>
-		<p class="error ml30">*请上传xls格式的文件</p>
 </section>
-<!--<script Language="JavaScript " Type="text/javascript ">
-	 function validate() {  
-                var fe = form1.file1.value;  
-                var ext = fe.substring(fe.length-3,fe.length);  
-                if(ext.toLowerCase()!="xls") {  
-                    form1.file1.focus();  
-                    alert("文件格式出错！");  
-                    return false;  
-                    }  
-                    alert("上传成功！");                 
-                return false;  
-            }  
-</script>-->
+<script type="text/javascript">
+	function tianjia1(){
+		var patentimger=$("#patent").val();
+		var patentname= $("#pol").val();
+		if(patentimger==""){
+			alert("请添加专利图片");
+		}else{
+		if(patentname!=null){
+		$.ajax({
+			url: "../PatentPhone/add",
+			type:"post",
+			data:{patentname:patentname,patentimger:patentimger},
+			success: function(data) {
+				alert("添加成功");
+				location.href="../bg/index.html#/main/check_patent"
+			}
+		})
+		}else{
+			alert("专利名不能为空");
+		}
+		}
+	}	
+</script>
+

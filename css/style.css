@@ -94,6 +94,10 @@
 	margin: 0 auto;
 	font-size: 14px;
 }
+.update-table1 {
+	width: 75%;
+	font-size: 14px;
+}
 .update-table td{
 	padding: 10px;
 }
@@ -108,3 +112,90 @@
 .update-dialog {
 	margin-top: 200px;
 }
+.filename{
+    width: 300px;
+    height: 34px;
+    line-height: 34px;
+    border:1px solid #ddd;
+}
+.upload-box{
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    overflow:hidden;
+    display: inline-block;
+}
+.upload-box input{
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    height: 34px;
+}
+	.updataImg .img-area{
+				float: left;
+				position: relative;
+				width: 100px;
+				height: 100px;
+				cursor: pointer;
+				margin: 5px 20px 5px 0;
+				border:1px solid #dcdcdc;
+			}
+			.updataImg .operate{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100px;
+				height: 100px;
+				background: rgba(0,0,0,0.3);
+				z-index: 5;
+				transform: scale(all 1s);
+			}
+			.updataImg .show{
+				display:block
+			}
+			.updataImg .operate .btn{
+				float: left;
+				display: inline-block;
+				padding: 3px 5px;
+				background: rgba(0,0,0,0.5);
+				color: #fff;
+				margin: 65px 7px 0 7px;
+				font-size: 12px;
+				border-radius: 3px;
+				cursor: pointer;
+			}
+			.file-area{
+				float: left;
+				width: 100px;
+				height: 100px;
+				position: relative;
+				margin: 5px 0;
+			}
+			.updataImg .add{
+				width: 100px;
+				height: 100px;
+				line-height: 100px;
+				border:1px solid #dcdcdc;
+				font-size: 70px;
+				color: #ddd;
+				text-align: center;
+				cursor: pointer;
+				background-color: #fcfcfc;
+				
+			}
+			.updataImg .add-hover{
+				background-color: #eee;
+				color: #ccc;
+			}
+			.file-area .upload-file {
+				width:100px;
+				height:100px;
+				position: absolute;
+			    left: 0;
+			    top: 0;
+			    opacity: 0;
+			    z-index:5;
+			    cursor: pointer;
+				
+			}

@@ -1,0 +1,118 @@
+<section class="main_right">
+	<div class="add_channel clearfix">
+		<h3>添加软件信息</h3>
+			
+			<form name="addAccredit" ng-controller="accFormController" id="form1"
+				enctype="multipart/form-data" target="_blank">
+				<table class="add_table">
+
+					<tr>
+						<td class="col-md-2">软件名称</td>
+						<td class="col-md-10"><input type="text"
+							class="form-control form-text" id="lo4" placeholder="输入软件名称"
+							name="appname" required="required"></td>
+					</tr>
+					<tr>
+						<td class="col-md-2">软件分类</td>
+						<td class="col-md-10"><input type="text"
+							class="form-control form-text" id="lo5" placeholder="输入软件分类"
+							name="apptype"  required="required"></td>
+					</tr>
+					<tr>
+						<td class="col-md-2">软件大小</td>
+						<td class="col-md-10" ng-controller="MyCtrl"><input type="text" id="lo3"
+							class="form-control form-text" placeholder="输入软件大小"
+							name="appsize"  readonly="readonly"
+							required="required" style="float: left;"><a style="float: left; margin-left: 15px;"
+						href="javascript:;" name="file" class="btn btn-success upload-box">
+						<input type="file" class="upload-file"
+						ngf-select="uploadFiles($file, $invalidFiles)"> <span
+						ng-hide="f.progress >= 0"> 上传 </span> <span
+						ng-show="f.progress >= 0"> 上传成功 </span>
+					</a></td>
+					</tr>
+					<tr>
+						<td class="col-md-2">下载链接</td>
+						<td class="col-md-10"><input type="text" id="appuri"
+							class="form-control form-text" placeholder="输入下载链接"
+							readonly="readonly"  name="appuri"
+							required="required" ></td>
+					</tr>
+					<tr>
+						<td class="col-md-2">图片链接</td>
+						<td class="col-md-10" ng-controller="MyCtrl"><input type="text" id="appimg"
+							class="form-control form-text" placeholder="输入图片链接"
+							readonly="readonly" ng-model="btFormData.appimg" name="appimg"
+							required="required" style="float: left;"><a style="float: left; margin-left: 15px;"
+						href="javascript:;" name="file" class="btn btn-success upload-box">
+						<input type="file" class="upload-file"
+						ngf-select="uploadImg($file, $invalidFiles)"> <span
+						ng-hide="f1.progress >= 0"> 上传 </span> <span
+						ng-show="f1.progress >= 0"> 上传成功 </span>
+					</a></td>
+					</tr>
+					<tr>
+						<td class="col-md-2">软件详情</td>
+							<td class="col-md-10"><textarea type="text/plain"
+							id="container2" name="appexplain">
+							</textarea>
+						</td>
+					</tr>
+					<!-- <tr>
+						<td class="col-md-2">软件说明</td>
+						<td class="col-md-10"><textarea type="text" id="lo2"
+							class="form-control form-text" placeholder="输入软件说明"
+							ng-model="btFormData.shuoming" name="appexplain"/></td>
+					</tr>
+					<tr>
+						<td class="col-md-2">更新说明</td>
+						<td class="col-md-10"><textarea type="text" id="lo1"
+							class="form-control form-text" placeholder="输入更新说明"
+							ng-model="btFormData.appupdate" name="appupdate"/></td>
+					</tr> -->
+				</table>
+				<div class="col-md-12 col-md-offset-3">
+					<button class="btn btn-success" type="submit" onclick="tianjia()">添加</button>
+				</div>
+				</div>
+		</div>
+		</form>
+</section>
+<script type="text/javascript">
+$(function(){
+	  UE.delEditor('container2');
+	   var ue = UE.getEditor('container2');
+})
+	function tianjia(){
+		var shuoming=UE.getEditor('container2').getContent();
+		var big=$("#lo3").val();
+		var name=$("#lo4").val();
+		var apptype=$("#lo5").val();
+		var appuri=$("#appuri").val();
+		var appimg=$('#appimg').val()
+		var form = new FormData();
+		form.append("apptype", apptype); // 可以增加表单数据
+		form.append("appname", name);
+		form.append("appsize", big);
+		form.append("appupdate","1");
+		form.append("appxplain", shuoming);
+		form.append("appimg",appimg);
+		form.append("appuri",appuri);
+		if(big!=""&&appimg!=""&&name!=""){
+		 $.ajax({
+			url : "../loadhome/add",
+			type : "POST",
+			data :$('#form1').serialize(),
+			success : function(data) {
+				alert("添加成功");
+				location.href = "../bg/index.html#/main/operation_log"
+			},
+			error:function(){
+				alert("添加失败");
+			}
+		}) 
+		}else{
+			alert("请确认添加完整");
+		}
+	}
+</script>

@@ -1,15 +1,15 @@
 <section class="main_right">
 	<h2>
-		<p>添加新闻信息</p>
+		<p>修改新闻信息</p>
 	</h2>
 	<div class="add_channel clearfix">
-		<form name="addAccredit" ng-submit="addnews()"
+		<form name="addAccredit" ng-submit="updatenews()"
 			ng-controller="accFormController">
 			<table class="add_table">
 				<tr>
 				<tr>
 					<td class="col-md-2">新闻类别</td>
-					<td class="col-md-10"><select class="form-control form-select" name="ntype" id="t1">
+					<td class="col-md-10"><select class="form-control form-select"  ng-model="btlist.ntype" >
 							<option value="公司新闻">公司新闻</option>
 							<option value="产业新闻">产业新闻</option>
 							<option value="产品新闻">产品新闻</option>
@@ -20,59 +20,57 @@
 				</tr>
 				<tr>
 					<td class="col-md-2">是否公开</td>
-					<td class="col-md-10"><select class="form-control form-select" name="statc" id="t2">
-					<option value="1">公开</option>
-						<option value="2">不公开</option>
-					</select></h5></td>
+					<td class="col-md-10">
+					<select class="form-control form-select" ng-model="btlist.statc"  ng-options="x.id as x.name for x in opene">
+					</select></td>
 				</tr>
 				<tr>
 					<td class="col-md-2">是否置顶</td>
-					<td class="col-md-10"><select class="form-control form-select" name="cantop" id="t3">
-					<option value="1">不置顶</option>
-						<option value="2">置顶</option>
-					</select></h5></td>
+					<td class="col-md-10">
+					<select class="form-control form-select" ng-model="btlist.mid"  ng-options="x.id as x.name for x in opend">
+					</select></td>
 				</tr>
 				<tr>
 					<td class="col-md-2">置顶图片路径</td>
-					<td class="col-md-7" ng-controller="MyCtrl"><input type="text"
+					<td class="col-md-7" ng-controller="MyCtrl"><input type="text" ng-model="btlist.newimger" value="{{btlist.newimger}}"
 						class="form-control form-text" id="pcimg" readonly="readonly" style="float: left">
 						<a href="javascript:;" name="file"
 						class="btn btn-success upload-box"
 						style="float: left; margin-left: 10px;"> <input type="file"
 							class="upload-file" ngf-select="uploadpcimg($file,1)"> <span
-							ng-hide="pf1.progress >= 0"> 添加 </span> <span
-							ng-show="pf1.progress >= 0"> 更改添加 </span>
+							ng-hide="pf1.progress >= 0"> 更改 </span> <span
+							ng-show="pf1.progress >= 0"> 继续更改 </span>
 					</a></td>
 				</tr>
 				<tr>
 				<tr>
 					<td class="col-md-3">标题图片路径</td>
 					<td class="col-md-7" ng-controller="MyCtrl">
-							<input type="text" class="form-control form-text"
+							<input type="text" class="form-control form-text" ng-model="btlist.newimg" value="{{btlist.newimg}}"
 								id="phimg"
 								readonly="readonly" style="float: left"> <a
 								href="javascript:;" name="file"
 								class="btn btn-success upload-box"
 								style="float: left; margin-left: 10px;"> <input type="file"
 								class="upload-file" ngf-select="uploadphimg($file,1)"> <span
-								ng-hide="pf2.progress >= 0"> 添加 </span> <span
-								ng-show="pf2.progress >= 0"> 更改成功 </span>
+								ng-hide="pf2.progress >= 0"> 更改 </span> <span
+								ng-show="pf2.progress >= 0"> 继续更改 </span>
 							</a>
 					</td>
 				</tr>
 				<tr>
 					<td class="col-md-2">新闻标题</td>
 					<td class="col-md-10"><input type="text"
-						class="form-control form-text" placeholder="输入新闻标题"
-						ng-model="btFormData.title" ></td>
+						class="form-control form-text" ng-model="btlist.title" value="{{btlist.title}}" placeholder="输入新闻标题"
+						ng-model="btFormData.title" required></td>
 				</tr>
 				<tr>
 					<td class="col-md-2">新闻来源</td>
-					<td class="col-md-10"><input type="text"
+					<td class="col-md-10"><input type="text" ng-model="btlist.source" value="{{btlist.source}}"
 						class="form-control form-text" placeholder="输入新闻来源"
-						ng-model="btFormData.source" required></td>
+						ng-model="btFormData.source" ></td>
 				</tr>
-				<tr>
+			<!-- 	<tr>
 					<td class="col-md-2">添加时间</td>
 					<td class="col-md-10">
 						<div class="accredit-time">
@@ -83,7 +81,7 @@
 								ng-model="formData.startTime" style="width: 320px;" />
 						</div>
 					</td>
-				</tr>
+				</tr> -->
 				<tr>
 					<td class="col-md-2">新闻内容</td>
 					<td class="col-md-10"><textarea type="text/plain"
@@ -92,20 +90,24 @@
 				</tr>
 			</table>
 			<div class="col-md-12 col-md-offset-3">
-				<button class="btn btn-success" type="submit">添加</button>
+				<button class="btn btn-success" type="submit">确认更改</button>
 				<button class="btn btn-default">清空</button>
 			</div>
 	</div>
 	</form>
 </section>
 <script type="text/javascript">
+var bgntext=window.localStorage.getItem('bgntext');
+if(bgntext!="undefined"){
+document.getElementById("container1").value=bgntext;
+}
 $(function(){
 
 	  UE.delEditor('container1');
 	   var ue = UE.getEditor('container1');
 })
-var check_in = document.getElementById("startTime1").flatpickr({
-});
+/* var check_in = document.getElementById("startTime1").flatpickr({
+}); */
 
 	
 </script>

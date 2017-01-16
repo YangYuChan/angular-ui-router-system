@@ -1,0 +1,64 @@
+<section class="main_right">
+	<h2>
+		<p>添加帮助问题信息</p>
+	</h2>
+	<div class="add_channel clearfix">
+		<h3>添加产品信息</h3>
+		<form name="addAccredit" ng-submit="addAccForm1()"
+			ng-controller="accFormController">
+			<table class="add_table">
+				<tr>
+				<tr>
+					<td class="col-md-2">所属分类</td>
+					<td class="col-md-10">
+						<select class="form-control form-select" id="protyper">
+							<option value="技术问题" selected="selected" >技术问题</option>
+							<option value="售前问题">售前问题</option>
+							<option value="售后问题">售后问题</option>
+							<option value="其他问题">其他问题</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td class="col-md-2">问题标题</td>
+					<td class="col-md-10"><textarea type="text"
+						class="form-control form-text" id="por" placeholder="输入问题标题"
+						ng-model="btFormData.problem" required/></td>
+				</tr>
+
+				<tr>
+					<td class="col-md-2">问题答案</td>
+					<td class="col-md-10"><textarea type="text" id="po1r"
+						class="form-control form-text" placeholder="输入问题答案"
+						ng-model="btFormData.answer"  required="required"/></td>
+				</tr>
+
+			</table>
+			<div class="col-md-12 col-md-offset-3">
+				<button class="btn btn-success" type="submit" onclick="tianjia()">添加</button>
+			</div>
+	</div>
+	</form>
+</section>
+<script type="text/javascript">
+	function tianjia(){
+		var protype=$("#protyper").val();
+		var problem= $("#por").val();
+		var answer= $("#po1r").val();	
+		if(problem!=""&&answer!=""){
+		$.ajax({
+			url: "../helphome/add",
+			type:"post",
+			data:{protype:protype,problem:problem,answer:answer},
+			success: function(data) {
+				alert("添加成功");
+				location.href="../bg/index.html#/main/check_news"
+			},
+			error:function(){
+				alert("添加失败");
+			}
+		})
+		}
+	}
+
+	
+</script>

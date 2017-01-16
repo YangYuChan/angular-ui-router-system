@@ -1,0 +1,90 @@
+<section class="main_right"	ng-controller="updataBtCtrl2">
+	<h2>
+		<p>添加产品系列信息</p>
+	</h2>
+	<div class="add_channel clearfix">
+		<h3>添加系列信息</h3>
+		<form name="addAccredit" 
+			ng-controller="accFormController">
+			<table class="add_table">
+				<tr>
+				<tr>
+					<td class="col-md-2">所属分类</td>
+					<td class="col-md-10">
+					<select class="form-control form-select"
+						 required="required" id="typeid" style="float: left;">
+							<option ng-repeat="bt in region" value="{{bt.sid}}">{{bt.series}}</option>
+					</select><input type="button" class="btn btn-success" value="增加" onclick="xianshi()" style="float: left; margin-left: 15px;"></td>
+				
+				</tr>
+				<tr>
+					<td class="col-md-2">次级分类</td>
+					<td class="col-md-10"><input type="text"
+						class="form-control form-text" id="pos" placeholder="次级分类标题"
+						ng-model="btFormData.problem" required/></td>
+				</tr>
+			</table>
+			<div class="col-md-12 col-md-offset-3">
+				<button class="btn btn-success" type="submit" onclick="tianjia()">添加</button>
+			</div>
+	</div>
+	</form>
+	<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal fade" id="myModal" style="display: none;">
+		<div class="modal-dialog update-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+					<h4 id="myModalLabel" class="modal-title">添加分类信息</h4>
+				</div>
+
+					<form method="post" ng-submit="updatess()" name="updateBluetooth">
+						<table cellpadding="0" cellspacing="0" class="update-table">
+							<thead>
+								<tr>
+									<td class="col-md-3">系列名</td>
+									<td class="col-md-7">
+										<input type="text" class="form-control form-text" id="ser" required >
+									</td>
+								</tr>				
+							<tr>
+									<td class="col-md-10" colspan="2" style="text-align: center;">
+										<button class="btn btn-success" type="submit" >增加</button>
+									</td>
+								</tr>	
+							</thead>
+						</table>
+				</div>
+				</form>
+
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+</section>
+<script type="text/javascript">
+	function tianjia(){
+		var protype=$("#typeid").val();
+		var problem= $("#pos").val();
+		var answer= $("#po1").val();	
+		if(problem!=null){
+		$.ajax({
+			url: "../subfam/add",
+			type:"post",
+			data:{serid:protype,subfamily:problem},
+			success: function(data) {
+				alert("添加成功");
+				var problem= $("#pos").val("");
+				location.href = "../bg/index.html#/main/list_type"
+			}
+		})
+		}else{
+			alert("次级分类不能为空");
+		}
+	}
+function xianshi(){
+	$('#myModal').modal('show');
+}
+	
+</script>

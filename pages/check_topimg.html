@@ -1,0 +1,109 @@
+<div ng-controller="updataJCtopimg">
+	<section class="main_right">
+		<h2><p>查看轮播图信息 </p></h2>
+		  <div ng-controller="Topimg" class="my-controller">
+		   <input type="number" min="1" max="100" class="form-control" ng-model="pageSize" style="display: none;">
+		<table cellpadding="0" cellspacing="0" class="list-table mt30">
+			<thead>
+				<tr>
+					<th style="width: 5%;">轮换图ID</th>
+					<th style="width: 35%">图片路径</th>
+					<th style="width: 35%">跳转路径</th>
+					<th style="width: 25%">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+		<tr dir-paginate="bt in jc_topimg | itemsPerPage: pageSize" current-page="currentPage">
+				
+					<td>{{bt.id}}</td>
+					<td><a href="{{bt.imgsrc}}" target="_a">{{bt.imgsrc}}</a></td>
+					<td>{{bt.imgurl}}</td>
+					<td>
+						<a href="javascript:void(0)" ng-click="updateptinfo($index,currentPage)">修改</a>
+						<a href="javascript:void(0)" ng-click="delpatent($index,currentPage)">删除</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	 <div ng-controller="OtherController" class="other-controller">
+				<div class="text-center">
+					<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="pages/pagination.html"></dir-pagination-controls>
+				</div>
+			</div>
+
+	<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal fade" id="myModal" style="display: none;">
+		<div class="modal-dialog update-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+					<h4 id="myModalLabel" class="modal-title">修改轮播信息</h4>
+				</div>
+
+					<form method="post" ng-submit="updatepatent()" name="updateBluetooth">
+						<table cellpadding="0" cellspacing="0" class="update-table">
+							<thead>
+								<tr>
+									<td class="col-md-3">轮播ID</td>
+									<td class="col-md-7">
+										<input type="text" class="form-control form-text" ng-model="btlist.bid" required readonly value="{{btlist.bid}}">
+									</td>
+								</tr>
+								<tr>
+									<td class="col-md-3">跳转路径</td>
+									<td class="col-md-7">
+										<input type="text" class="form-control form-text" ng-model="btlist.rname" required value="{{btlist.rname}}">
+									</td>
+								</tr>
+
+							<tr>
+								<td class="col-md-3">图片路径</td>
+								<td class="col-md-7" >
+									<p>
+										<input type="text" class="form-control form-text"
+											id="topimg" ng-model="btlist.bname" value="{{btlist.bname}}"
+											readonly="readonly">											
+								</td>
+								<td class="col-md-3" ng-controller="MyCtrl">
+								<a href="javascript:;"
+											name="file" class="btn btn-success upload-box"> <input
+											type="file" class="upload-file"
+											ngf-select="uploadimgr($file)"> <span
+											ng-hide="pf.progress >= 0"> 更改 </span> <span
+											ng-show="pf.progress >= 0"> 修改成功 </span>
+										</a></td>
+							</tr>
+							<tr>
+									<td class="col-md-10" colspan="2" style="text-align: center;">
+										<button class="btn btn-success" type="submit">确认修改</button>
+									</td>
+								</tr>	
+							</thead>
+						</table>
+
+				</div>
+				</form>
+
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+		<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal fade" id="myModal1" style="display: none;">
+		<div class="modal-dialog update-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+					<h4 id="myModalLabel" class="modal-title">查看图片</h4>
+				</div>
+				<img id="topds" width="300px" height="400px">	
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	
+</div>
+</div>
+<script>
+
+</script>
